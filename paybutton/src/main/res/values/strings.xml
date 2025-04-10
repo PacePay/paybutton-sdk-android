@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PayButton</string>
+    <string name="app_name">Pace Pay Button</string>
     <string name="pay_now">Pay Now</string>
     <string name="merchant">Merchant</string>
     <string name="amount">Amount</string>
@@ -90,5 +90,20 @@
     <string name="ad_nfcTurnOn_message">You need turn on NFC module for scanning. Wish to turn it on?</string>
     <string name="ad_nfcTurnOn_pos">Turn on</string>
     <string name="ad_nfcTurnOn_neg">Dismiss</string>
+    <string name="image">image</string>
+    <string name="genrateing_pay_link">Sending PayLink </string>
 
+    <string-array name="notitype">
+        <item>Email</item>
+        <item>Mobile</item>
+    </string-array>
+
+    <string-array name="pay_link_type">
+        <item>One-use link</item>
+        <item>Multiple-use link</item>
+    </string-array>
+    <string name="upg_dialog_amount_title">Enter the  amount</string>
+    <string name="upg_new_merchant_label_email">Email Address</string>
+    <string name="upg_new_merchant_phone_hint">201xxxxxxxxx</string>
+    <string name="error_field_required">This field is required</string>
 </resources>

@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -22,7 +23,6 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:gravity="center|start"
@@ -33,15 +33,64 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background">
-
-                    <Spinner
-                        android:id="@+id/TerminalSpinner"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/terminal_editText"
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
-                        android:dropDownVerticalOffset="40dp"
-                        android:gravity="start"
-                        android:padding="@dimen/_8sdp"
-                        android:text="@string/upg_paylink_select_merchant_type_hint" />
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_login_background"
+                        android:hint="@string/upg_general_TerminalWithoutDot"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/expire_date_editText"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        style="@style/EditStyle"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow android:id="@+id/merchantLL">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center|start"
+                    android:text="@string/merchant" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_login_background">
+                    <EditText
+                        android:id="@+id/merchant_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_login_background"
+                        android:hint="@string/merchant"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/expire_date_editText"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        style="@style/EditStyle"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/_12ssp" />
+
+
                 </LinearLayout>
 
             </TableRow>
@@ -67,21 +116,11 @@
                     android:background="@drawable/edit_login_background"
                     android:orientation="horizontal">
 
-                    <Spinner
-                        android:id="@+id/CurrncyType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_35sdp"
-                        android:dropDownVerticalOffset="40dp"
-                        android:gravity="start"
-                        android:padding="@dimen/_8sdp"
-                        android:text="Please select merchant type" />
-
                     <io.paysky.paybutton.example.CurrencyEditText
                         android:id="@+id/amount_editText"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_38sdp"
                         android:background="@null"
-                        android:hint="@string/upg_general_Amount"
                         android:imeOptions="actionNext"
                         android:paddingEnd="@dimen/_8sdp"
                         android:singleLine="true"
@@ -91,14 +130,74 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_12ssp"
                         app:locale="en_US"
-                        tools:text="5555555555"
+                        tools:text=""
                         app:showSymbol="false" />
 
                 </LinearLayout>
 
+
             </TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center|start"
+                    android:text="@string/currency" />
+                <EditText
+                    android:background="@drawable/edit_login_background"
+                    android:id="@+id/currency_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_38sdp"
+                    android:imeOptions="actionNext"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:locale="en_US"
+                    tools:text=""
+                    app:showSymbol="false" />
 
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center|start"
+                    android:text="@string/secure_hash_key" />
+
+                <EditText
+                    android:background="@drawable/edit_login_background"
+                    android:layout_weight="1"
+                    android:id="@+id/secureHash_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_38sdp"
+                    android:imeOptions="actionNext"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:locale="en_US"
+                    tools:text=""
+                    app:showSymbol="false" />
+            </LinearLayout>
             <TableRow android:layout_marginTop="@dimen/_8sdp">
 
                 <TextView
@@ -334,7 +433,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_weight="1"
-
                     android:background="@drawable/edit_login_background"
                     android:gravity="center"
                     android:orientation="horizontal">

@@ -357,6 +357,21 @@
                 android:textColor="#FFF"
                 android:textSize="@dimen/_14ssp" />
 
+            <TextView
+                android:id="@+id/pay_Link"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_blue_selector"
+                android:enabled="true"
+                android:gravity="center"
+                android:text="@string/upg_paylink_send_PayLink_btn"
+                android:textColor="#FFF"
+                android:textSize="@dimen/_14ssp" />
+
 
             <TextView
                 android:id="@+id/payment_status_textView"

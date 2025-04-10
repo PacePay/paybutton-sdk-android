@@ -20,10 +20,11 @@ public class ApiLinks {
     public static final String LIST_SAVED_CARDS_FOR_CUSTOMER = CUBE_GATEWAY + API + "GetAllCardsForCustomerToken";
     public static final String DELETE_TOKENIZED_CARD = CUBE_GATEWAY + API + "RemoveToken";
     public static final String CHANGE_DEFAULT_CARD = CUBE_GATEWAY + API + "ChangeDefaultToken";
+    public static final String InitiateOrder = CUBE_GATEWAY + API + "InitiateOrder";
 
-    public static final String GRAY_LINK = "https://grey.paysky.io/";
-    public static final String CUBE = "https://cube.paysky.io/";
-
+    public static final String GRAY_LINK = "https://red3.paysky.io/";
+    public static final String CUBE = "https://adcb.paysky.io/";
+   // https://adcb.paysky.io/cube/paylink.svc/api/login
     public static String PAYMENT_LINK = CUBE;
 }
 

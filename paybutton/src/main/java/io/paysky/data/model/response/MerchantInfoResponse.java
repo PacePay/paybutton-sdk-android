@@ -8,10 +8,10 @@ import javax.annotation.Generated;
 public class MerchantInfoResponse{
 
 	@SerializedName("Is3DS")
-	public boolean is3DS;
+	public boolean is3DS=true;
 
 	@SerializedName("MerchantCurrency")
-	public String merchantCurrency;
+	public String merchantCurrency="784";
 
 	@SerializedName("Message")
 	public String message;

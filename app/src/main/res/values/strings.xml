@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PaySky PayButton Demo</string>
+    <string name="app_name">Pace PayButton Demo</string>
     <string name="required">Required field</string>
     <string name="english">English</string>
     <string name="merchant_id">Merchant ID</string>
@@ -23,5 +23,44 @@
         PaySky PayButton SDK - Version  %s
     </string>
     <string name="auth_spinner_hint">Select channel (Mobile number or Email)</string>
+
+
+    <string name="upg_general_All">All</string>
+    <string name="AllTerminal">Terminal - All </string>
+    <string name="upg_general_Terminal">"Terminal: "</string>
+    <string name="upg_general_TerminalWithoutDot">"Terminal"</string>
+
+    <string name="upg_paylink_select_merchant_type_hint">Please select merchant type</string>
+    <string name="upg_paylink_select_order_type_hint">Please select merchant type</string>
+    <string name="upg_support_contact_label">For Support and customer service please contact</string>
+
+    <string name="upg_general_fees">Fees</string>
+    <string name="upg_reciept_Total_label">Total </string>
+    <string name="upg_general_Amountdot">Amount: </string>
+    <string name="upg_general_Amount">Amount</string>
+
+
+    <string name="upg_paylink_payer_name_hint">Payer Name (Optional)</string>
+    <string name="upg_paylink_order_Type_label">Order Type</string>
+    <string name="upg_paylink_transaction_number_label">Merchant Ref. #</string>
+    <string name="upg_paylink_payer_name_label">Payer Name</string>
+    <string name="number_payment_name">Max Number</string>
+    <string name="upg_paylink_item_number_payment_name_label">Max Number of payment</string>
+    <string name="RecieverNumber">Receiver Number</string>
+
+    <string name="date_error">Invalid Date</string>
+    <string name="upg_paylink_transaction_number_hint">Merchant Ref. # (Optional)</string>
+    <string name="upg_general_Expiration">Expiration</string>
+    <string name="upg_paylink_expiration_date_hint">Expiration (Optional)</string>
+
+    <string name="invalid_phone">Invalid Phone Number.</string>
+    <string name="upg_general_Notification">Notification</string>
+
+    <string name="upg_general_chooseCountry">Choose Country</string>
+    <string name="upg_general_choose">Choose</string>
+
+    <string name="upg_general_history"><u>History</u></string>
+    <string name="upg_paylink_send_PayLink_btn">Generate PayLink</string>
+    <string name="sale_by_qr">Sale by QR Code</string>
 
 </resources>

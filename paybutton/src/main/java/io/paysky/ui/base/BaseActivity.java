@@ -51,6 +51,11 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     @Override
+    public Context getContext() {
+        return getContext();
+    }
+
+    @Override
     public void dismissProgress() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();

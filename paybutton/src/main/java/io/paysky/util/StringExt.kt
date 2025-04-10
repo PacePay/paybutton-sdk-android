@@ -1,4 +1,4 @@
-package com.paysky.upg.extensions
+package io.paysky.util
 
 import android.text.Editable
 import android.text.InputFilter
@@ -7,7 +7,6 @@ import android.text.Spanned
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import io.paysky.upg.util.SessionManager
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.text.ParseException
@@ -54,7 +53,7 @@ fun String.splitStringToOrderIdAndAmount(): MutableList<String> {
          */
         val solution: Double = pairsStringsFromQrCode.second.replace(",", "").toDouble()
         amountText = String.format(
-            "%.${SessionManager.getInstance().empData.decimalPlace}f",
+            "%.${3}f",
             solution
         )
 

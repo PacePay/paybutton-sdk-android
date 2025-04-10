@@ -1,11 +1,12 @@
-package com.paysky.upg.utils;
+package io.paysky.paybutton.example.util;
 
 
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 
-import com.paysky.upg.R;
+
+import com.example.amrel.paybuttonexample.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import io.paysky.upg.util.DateTimeUtil;
+import io.paysky.util.DateTimeUtil;
+
 
 /**
  * Created by PaySky-3 on 8/9/2017.

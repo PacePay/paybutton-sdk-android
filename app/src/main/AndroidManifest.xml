@@ -20,13 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name="io.paysky.paybutton.example.SettingActivity" />
-        <activity android:name="io.paysky.paybutton.example.PayListActivity">
-            <!--     <intent-filter>
-                     <action android:name="android.intent.action.MAIN" />
+        <activity android:name="io.paysky.paybutton.example.PayListActivity" />
 
-                     <category android:name="android.intent.category.LAUNCHER" />
-                 </intent-filter>-->
-        </activity>
+        <activity android:name="io.paysky.paybutton.example.PayLinkActivity" />
+
     </application>
 
 </manifest>

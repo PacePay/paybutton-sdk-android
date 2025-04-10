@@ -1,5 +1,7 @@
 package io.paysky.ui.mvp;
 
+import android.content.Context;
+
 import androidx.annotation.StringRes;
 
 public interface BaseView {
@@ -8,6 +10,7 @@ public interface BaseView {
 
     void showProgress(@StringRes int message);
 
+    Context getContext();
 
     void dismissProgress();
 

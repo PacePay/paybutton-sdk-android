@@ -1,8 +1,11 @@
-package io.paysky.upg.data.network.model.request;
+package io.paysky.data.model.request;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Calendar;
+
+import io.paysky.util.DateTimeUtil;
 
 public class InitiateOrderRequest extends BaseRequest {
 
@@ -11,6 +14,76 @@ public class InitiateOrderRequest extends BaseRequest {
     @SerializedName("Currency")
     String Currency;
 
+    public String getSecureHash() {
+        return SecureHash;
+    }
+
+    public void setSecureHash(String secureHash) {
+        SecureHash = secureHash;
+    }
+
+    public String getDateTimeLocalTrxn() {
+        return DateTimeLocalTrxn;
+    }
+
+    public void setDateTimeLocalTrxn(String dateTimeLocalTrxn) {
+        DateTimeLocalTrxn = dateTimeLocalTrxn;
+    }
+
+    @SerializedName("SecureHash")
+    @Expose
+    private String SecureHash;
+
+    @SerializedName("DateTimeLocalTrxn")
+    @Expose
+    private String DateTimeLocalTrxn = DateTimeUtil.getDateTimeLocalTrxn();
+
+
+    public String getMerchantId() {
+        return MerchantId;
+    }
+
+    public void setMerchantId(String merchantId) {
+        MerchantId = merchantId;
+    }
+
+    @SerializedName("MerchantId")
+    @Expose
+    private String MerchantId;
+
+    public String getAmountTrxn() {
+        return AmountTrxn;
+    }
+
+    public void setAmountTrxn(String amountTrxn) {
+        AmountTrxn = amountTrxn;
+    }
+
+    @SerializedName("AmountTrxn")
+    String AmountTrxn;
+
+    public String getMerchantReference() {
+        return MerchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        MerchantReference = merchantReference;
+    }
+
+    @SerializedName("MerchantReference")
+    public String MerchantReference;
+
+    public String getTerminalId() {
+        return TerminalId;
+    }
+
+    public void setTerminalId(String terminalId) {
+        TerminalId = terminalId;
+    }
+
+    @SerializedName("TerminalId")
+    @Expose
+    private String TerminalId;
 
     @SerializedName("CurrencyName")
     String CurrencyName;
@@ -123,7 +196,7 @@ public class InitiateOrderRequest extends BaseRequest {
 //        int arg5 = Calendar.getInstance().get(Calendar.MINUTE);
 
 //        String time = " "+arg4 + " : " + arg5 + " ";
-        return ExpiryString  ;
+        return ExpiryString;
     }
 
     public void setExpiryString(String expiryString) {

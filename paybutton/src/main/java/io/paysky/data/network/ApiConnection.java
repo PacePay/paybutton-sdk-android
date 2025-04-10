@@ -69,6 +69,7 @@ public class ApiConnection {
                 .create(ApiInterface.class);
     }
 
+
     public static void executePayment(ManualPaymentRequest manualPaymentRequest,
                                       final ApiResponseListener<ManualPaymentResponse> listener) {
         createConnection().executeManualPayment(manualPaymentRequest)
@@ -132,8 +133,7 @@ public class ApiConnection {
                 });
     }
 
-    public static void checkTransactionPaymentStatus(TransactionStatusRequest request,
-                                                     final ApiResponseListener<TransactionStatusResponse> listener) {
+    public static void checkTransactionPaymentStatus(TransactionStatusRequest request, final ApiResponseListener<TransactionStatusResponse> listener) {
         createConnection().checkTransactionStatus(request)
                 .enqueue(new Callback<TransactionStatusResponse>() {
                     @Override
@@ -152,8 +152,15 @@ public class ApiConnection {
                     }
                 });
     }
+    private static ApiInterface payLinkInterface;
 
 
+    public static ApiInterface getPayLinkInterface() {
+        if (payLinkInterface == null) {
+            payLinkInterface = createConnection();
+        }
+        return payLinkInterface;
+    }
     public static void requestToPay(RequestToPayRequest requestToPayRequest,
                                     final ApiResponseListener<RequestToPayResponse> listener) {
         createConnection().requestToPay(requestToPayRequest)

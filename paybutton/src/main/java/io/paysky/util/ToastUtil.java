@@ -1,4 +1,4 @@
-package io.paysky.upg.util;
+package io.paysky.util;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,7 +7,8 @@ import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 
-import io.paysky.upg.R;
+import com.example.paybutton.R;
+
 
 public class ToastUtil extends NoProguard {
 
@@ -57,7 +58,7 @@ public class ToastUtil extends NoProguard {
             return;
         }
         Toast toast = Toast.makeText(context, message, length);
-        toast.getView().setBackgroundColor(context.getResources().getColor(R.color.redColor));
+        toast.getView().setBackgroundColor(context.getResources().getColor(R.color.black));
         TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.WHITE);
         toast.show();

@@ -1,15 +1,16 @@
-package io.paysky.upg.mvp.paylinkfragment;
+package io.paysky.ui.mvp.paylinkfragment;
+
+import com.example.paybutton.R;
 
 import java.math.BigInteger;
 
-import io.paysky.upg.R;
-import io.paysky.upg.data.network.ApiClient;
-import io.paysky.upg.data.network.ApiInterface;
-import io.paysky.upg.data.network.model.request.InitiateOrderRequest;
-import io.paysky.upg.data.network.model.response.InitiateOrderResponse;
-import io.paysky.upg.util.BuildUtil;
-import io.paysky.upg.util.NumberUtil;
-import io.paysky.upg.util.ToastUtil;
+import io.paysky.data.model.request.InitiateOrderRequest;
+import io.paysky.data.model.response.InitiateOrderResponse;
+import io.paysky.data.network.ApiConnection;
+import io.paysky.data.network.ApiInterface;
+import io.paysky.util.HashGenerator;
+import io.paysky.util.NumberUtil;
+import io.paysky.util.ToastUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -20,11 +21,13 @@ public class PayLinkFragmentManager {
         this.view = view;
     }
 
-    void initiateOrder(String selectedTerminal, String selectedCurrancy, String currencyName
+    void initiateOrder(String selectedTerminal,String merchantId,String merchantSecureHash, String selectedCurrancy, String currencyName
             , String dateExpire, String payerName, String notificationMethod, String notification, String referenceNumber, String amount, String amountTransaction, String numberOfPayment, String Image, String message) {
         view.showProgress(R.string.genrateing_pay_link);
         final InitiateOrderRequest InitiateOrder = new InitiateOrderRequest();
         InitiateOrder.setTerminalId(selectedTerminal);
+        InitiateOrder.setMerchantId(merchantId);
+        InitiateOrder.setSecureHash(HashGenerator.encode(merchantSecureHash, InitiateOrder.getDateTimeLocalTrxn(), merchantId, selectedTerminal));
         InitiateOrder.setCurrency(selectedCurrancy);
         InitiateOrder.setCurrencyName(currencyName);
         InitiateOrder.setExpiryDateTime(dateExpire);
@@ -45,13 +48,14 @@ public class PayLinkFragmentManager {
         } catch (Exception e) {
             InitiateOrder.setMaxNumberOfPayment("1");
         }
-        if (BuildUtil.isVPOSGroupApp()) {
-            view.showPayLinkDialog(InitiateOrder, null);
-            if (view == null) return;
-            view.dismissProgress();
-            return;
-        }
-        ApiInterface apiInterface = ApiClient.getPayLinkInterface();
+//        if (BuildUtil.isVPOSGroupApp()) {
+//            view.showPayLinkDialog(InitiateOrder, null);
+//            if (view == null) return;
+//            view.dismissProgress();
+//            return;
+//        }
+        ApiInterface apiInterface = ApiConnection.getPayLinkInterface();
+
         apiInterface.initiateOrder(InitiateOrder)
                 .enqueue(new Callback<InitiateOrderResponse>() {
                     @Override

@@ -1,7 +1,10 @@
 package io.paysky.data.network;
 
+import static io.paysky.data.network.ApiLinks.InitiateOrder;
+
 import io.paysky.data.model.request.CheckTransactionStatusRequest;
 import io.paysky.data.model.request.GetSessionRequest;
+import io.paysky.data.model.request.InitiateOrderRequest;
 import io.paysky.data.model.request.ListSavedCardsRequest;
 import io.paysky.data.model.request.ManualPaymentRequest;
 import io.paysky.data.model.request.MerchantInfoRequest;
@@ -13,6 +16,7 @@ import io.paysky.data.model.request.UpdateCardsRequest;
 import io.paysky.data.model.response.CheckTransactionStatusResponse;
 import io.paysky.data.model.response.GenerateQrCodeResponse;
 import io.paysky.data.model.response.GetSessionResponse;
+import io.paysky.data.model.response.InitiateOrderResponse;
 import io.paysky.data.model.response.ListSavedCardsResponse;
 import io.paysky.data.model.response.ManualPaymentResponse;
 import io.paysky.data.model.response.MerchantInfoResponse;
@@ -79,4 +83,8 @@ public interface ApiInterface {
     @Headers("Content-Type: application/json")
     @POST(ApiLinks.DELETE_TOKENIZED_CARD)
     Call<UpdateCardsResponse> deleteTokenizedCard(@Body UpdateCardsRequest request);
+
+    @Headers("Content-Type: application/json")
+    @POST(InitiateOrder)
+    Call<InitiateOrderResponse> initiateOrder(@Body InitiateOrderRequest request);
 }

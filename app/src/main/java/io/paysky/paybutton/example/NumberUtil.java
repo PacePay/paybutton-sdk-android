@@ -1,10 +1,8 @@
-package io.paysky.upg.util;
+package io.paysky.paybutton.example;
 
 import java.math.BigInteger;
-import java.text.DecimalFormat;
-import java.util.Locale;
 
-import io.paysky.upg.constant.DecimalPlaces;
+import io.paysky.util.NoProguard;
 
 public class NumberUtil extends NoProguard {
 
@@ -41,19 +39,11 @@ public class NumberUtil extends NoProguard {
     }
 
     public static int formatPaymentAmountToServer(String payAmount) {
-        if (SessionManager.getInstance().getEmpData().getDecimalPlace() == DecimalPlaces.THREE_DECIMAL.getDecimalPlace()) {
-            double amount = Double.parseDouble(payAmount.replaceAll(",", ""));
-            DecimalFormat df = (DecimalFormat) DecimalFormat.getNumberInstance(Locale.US);
-            df.setMaximumFractionDigits(SessionManager.getInstance().getEmpData().getDecimalPlace());
-            df.setMinimumFractionDigits(SessionManager.getInstance().getEmpData().getDecimalPlace());
-            String amountStr = df.format(amount);
-            amountStr = amountStr.replaceAll("\\D+", "");
-            return Integer.parseInt(amountStr);
-        } else {
+
             payAmount = payAmount.replaceAll("\\D+", "");
             payAmount = payAmount.replaceAll(",", "");
             return Integer.parseInt(payAmount);
-        }
+
     }
 
     public static BigInteger formatPaymentAmountToServerBigInteger(String payAmount) {
@@ -67,3 +57,4 @@ public class NumberUtil extends NoProguard {
     }
 
 }
+

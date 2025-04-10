@@ -1,11 +1,11 @@
-package io.paysky.upg.util;
+package io.paysky.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class ValidateUtil  extends NoProguard {
+public class ValidateUtil extends NoProguard {
 
     public static boolean hasContinuousCharacter(String number) {
         return Pattern.compile("(012|123|234|345|456|567|678|789|210|321|432|654|765|876|987)+").matcher(number).lookingAt();

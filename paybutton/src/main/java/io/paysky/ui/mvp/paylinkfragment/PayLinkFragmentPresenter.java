@@ -1,6 +1,7 @@
-package io.paysky.upg.mvp.paylinkfragment;
+package io.paysky.ui.mvp.paylinkfragment;
 
-import io.paysky.upg.base.BasePresenter;
+
+import io.paysky.ui.mvp.BasePresenter;
 
 public class PayLinkFragmentPresenter extends BasePresenter<PayLinkFragmentView> {
 
@@ -14,10 +15,10 @@ public class PayLinkFragmentPresenter extends BasePresenter<PayLinkFragmentView>
     }
 
 
-    public void initiateOrder(String selectedTerminal, String selectedCurrancy, String currencyName
+    public void initiateOrder(String selectedTerminal,String merchantId,String merchantSecureHash, String selectedCurrancy, String currencyName
             , String dateExpire, String payerName, String notificationMethod, String notification, String referenceNumber,
                               String amount, String amountTransaction, String numberOfPayment, String Image, String message) {
-        manager.initiateOrder(selectedTerminal, selectedCurrancy, currencyName, dateExpire, payerName,
+        manager.initiateOrder(selectedTerminal,merchantId,merchantSecureHash, selectedCurrancy, currencyName, dateExpire, payerName,
                 notificationMethod, notification
                 , referenceNumber, amount, amountTransaction, numberOfPayment, Image, message);
     }

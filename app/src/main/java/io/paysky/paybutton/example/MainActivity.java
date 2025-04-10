@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity
             amountEditText, secureHashKeyEditText, transactionRefNumberEditText,
             customerIdEditText, emailTextField, mobileNumberTextField;
     private TextView paymentStatusTextView;
-    private TextView payTextView;
+    private TextView payTextView,payLink;
     private EditText currencyEditText;
     private Spinner spinner_type, authTypeSpinner;
 
@@ -237,6 +240,10 @@ public class MainActivity extends AppCompatActivity
                 }
             });
         });
+
+        payLink.setOnClickListener(v -> {
+            startActivity(new Intent(this, PayLinkActivity.class));
+        });
     }
 
     private boolean validateData(String terminalId,
@@ -382,6 +389,7 @@ public class MainActivity extends AppCompatActivity
         spinner_type = findViewById(R.id.spinner_type);
         authTypeSpinner = findViewById(R.id.auth_type_spinner);
         payTextView = findViewById(R.id.pay_textView);
+        payLink = findViewById(R.id.pay_Link);
     }
 
     private void showNotSubscribedFields() {
