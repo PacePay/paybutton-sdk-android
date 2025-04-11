@@ -106,4 +106,6 @@
     <string name="upg_new_merchant_label_email">Email Address</string>
     <string name="upg_new_merchant_phone_hint">201xxxxxxxxx</string>
     <string name="error_field_required">This field is required</string>
+    <string name="error_bad_request">Error bad Request</string>
+    <string name="network_error">Network error</string>
 </resources>

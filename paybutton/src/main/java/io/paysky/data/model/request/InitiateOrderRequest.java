@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 import io.paysky.util.DateTimeUtil;
 
-public class InitiateOrderRequest extends BaseRequest {
+public class InitiateOrderRequest  {
 
     @SerializedName("CallBackURL")
     String CallBackURL;

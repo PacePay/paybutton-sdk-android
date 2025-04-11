@@ -1,13 +1,14 @@
 package io.paysky.paybutton.example;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.View;
@@ -20,10 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.amrel.paybuttonexample.R;
@@ -34,232 +35,220 @@ import java.util.Locale;
 
 import io.paysky.data.model.request.InitiateOrderRequest;
 import io.paysky.data.model.response.InitiateOrderResponse;
+import io.paysky.data.network.ApiConnection;
 import io.paysky.paybutton.example.util.DateTimeDailogUtil;
-import io.paysky.ui.mvp.paylinkfragment.PayLinkFragmentPresenter;
-import io.paysky.ui.mvp.paylinkfragment.PayLinkFragmentView;
+import io.paysky.ui.paylink.PayLinkCallback;
+import io.paysky.ui.paylink.PayLinkSdk;
+import io.paysky.ui.paylink.mvp.PayLinkFragmentPresenter;
+import io.paysky.ui.paylink.mvp.PayLinkFragmentView;
 import io.paysky.util.ValidateUtil;
 
-public class PayLinkActivity extends AppCompatActivity implements PayLinkFragmentView,TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
-        public int selectedTypePayLink;
-        Spinner  currencyTypeSpinner, typeSpinner, notiTypeSpinner;
-        EditText payerNameEditText, numberPaymentEditText, refNumberEditText, notificationEditText,terminalEditText,merchantEditText,currencyCode;
-        Button expirationDateButton;
-        TableRow typeLL;
-        LinearLayout genratePayLink,line;
-        CurrencyEditText amountEditText;
-        public String NotificationMethod = "";
-        String linkExpireDate;
-    private PayLinkFragmentPresenter presenter = new PayLinkFragmentPresenter();
+public class PayLinkActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+
+    private int selectedTypePayLink;
+    private String notificationMethod = "";
+    private String linkExpireDate;
+
+    private Spinner currencyTypeSpinner, typeSpinner, notificationTypeSpinner;
+    private EditText payerNameEditText, numberOfPaymentsEditText, refNumberEditText, notificationEditText, terminalEditText, merchantEditText, currencyCodeEditText,secureHashEditText,currencyName;
+    private Button expirationDateButton;
+    private CurrencyEditText amountEditText;
+    private TableRow typeLayout;
+    private LinearLayout generatePayLinkButton, lineLayout;
     private ProgressBar progressBar;
 
-    private int dayOfMonth = 0;
-    private int month = 0;
-    private int year = 0;
-        @SuppressLint("MissingInflatedId")
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_paylink); // Your XML should be renamed from fragment to activity layout if needed
-            presenter.attachView(this);
-            // Initialize views
 
-            typeSpinner = findViewById(R.id.TypeSpinner);
-            currencyCode = findViewById(R.id.currency_code);
-            notiTypeSpinner = findViewById(R.id.NotiType);
-            terminalEditText = findViewById(R.id.terminal_editText);
-            merchantEditText = findViewById(R.id.merchant_editText);
-            genratePayLink = findViewById(R.id.genratePayLink);
-            line = findViewById(R.id.line);
-            typeLL = findViewById(R.id.typeLL);
+    private int dayOfMonth, month, year;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_paylink);
 
 
-            progressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleLarge);
-
-
-            progressBar.setVisibility(View.GONE); // Hidden by default
-            LinearLayout.LayoutParams progressParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            progressParams.gravity = Gravity.CENTER_HORIZONTAL;
-            line.addView(progressBar, progressParams);
-
-
-            payerNameEditText = findViewById(R.id.PayerName);
-            numberPaymentEditText = findViewById(R.id.NumberPayment);
-            refNumberEditText = findViewById(R.id.refnumber);
-            notificationEditText = findViewById(R.id.notification);
-            amountEditText = findViewById(R.id.amount_editText); // Assuming custom view has EditText behavior
-
-            expirationDateButton = findViewById(R.id.dataExp);
-            setDefaultLinkExpireDate();
-            // Example: handle click on expiration date
-            expirationDateButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    DateTimeDailogUtil.createExpirationDateDialog(linkExpireDate,getContext(), PayLinkActivity.this).show();
-                }
-            });
-
-            ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(this, R.layout.spinner_item_paylink, getResources().getStringArray(R.array.notitype)); //selected item will look like a spinner set from XML
-            spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            notiTypeSpinner.setAdapter(spinnerArrayAdapter2);
-            notiTypeSpinner.getBackground().setColorFilter(getResources().getColor(R.color.red100), PorterDuff.Mode.SRC_ATOP);
-
-            notiTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                    if (selectedItemView != null) {
-                        ((TextView) selectedItemView).setTextColor(getResources().getColor(R.color.black));
-                    }
-                    if (position == 0) {
-                        notificationEditText.setHint(getResources().getString(R.string.upg_new_merchant_label_email));
-                        notificationEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(160)});
-                        notificationEditText.setInputType(1);
-                        notificationEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
-                        NotificationMethod = "0";
-                    } else {
-                        notificationEditText.setHint(getResources().getString(R.string.upg_new_merchant_phone_hint));
-                        notificationEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        notificationEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(16)});
-
-                        NotificationMethod = "1";
-
-                    }
-
-                    notificationEditText.setText("");
-                    //StringExtKt.removeErrorMessageOnPresenceOfText(notificationEditText);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parentView) {
-
-                }
-            });
-
-
-            ArrayAdapter<String> spinnerArrayAdapter4 = new ArrayAdapter<String>(this, R.layout.spinner_item_paylink, getResources().getStringArray(R.array.pay_link_type));
-            spinnerArrayAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            typeSpinner.setAdapter(spinnerArrayAdapter4);
-            typeSpinner.getBackground().setColorFilter(getResources().getColor(R.color.red100), PorterDuff.Mode.SRC_ATOP);
-            typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                    if (selectedItemView != null) {
-                        ((TextView) selectedItemView).setTextColor(getResources().getColor(R.color.black));
-                    }
-                    selectedTypePayLink = position;
-                    if (position == 1) {
-                        typeLL.setVisibility(View.VISIBLE);
-                    } else {
-                        typeLL.setVisibility(View.GONE);
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parentView) {
-                    ((TextView) parentView.getItemAtPosition(0)).setTextColor(getResources().getColor(R.color.black));
-
-                    selectedTypePayLink = 0;
-                }
-            });
-
-            genratePayLink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        progressBar.setVisibility(View.VISIBLE);
-                        RatepayerLinkClicked();
-                    } catch (ParseException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            });
+        initViews();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setupSpinners();
         }
-
-    public void RatepayerLinkClicked() throws ParseException {
-        boolean hasError = false;
-
-        try {
-            if (amountEditText.getText().toString().isEmpty() || amountEditText.getText().toString().equals("0") || amountEditText.getText().toString().equals("0.00") || amountEditText.getText().toString().equals("0.000")) {
-                amountEditText.setError(getResources().getString(R.string.upg_dialog_amount_title));
-                hasError = true;
-            }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-        Integer amountFormatted = 0;
-        try {
-            amountFormatted = NumberUtil.formatPaymentAmountToServer(amountEditText.getCurrencyText());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        if (notificationEditText.getText().toString().isEmpty()) {
-            notificationEditText.setError(getResources().getString(R.string.error_field_required));
-            hasError = true;
-        } else {
-            if (NotificationMethod.equals("0")) {
-                if (!ValidateUtil.validMail(notificationEditText.getText().toString())) {
-                    notificationEditText.setError(getResources().getString(R.string.invalid_mail));
-                    hasError = true;
-                }
-            }
-            if (NotificationMethod.equals("1")) {
-                if (notificationEditText.getText().toString().isEmpty()) {
-                    notificationEditText.setError(getResources().getString(R.string.invalid_phone));
-                    hasError = true;
-                }
-            }
-        }
-
-        if (hasError) {
-            return;
-        }
-
-        String numberOfPaymentValue = numberPaymentEditText.getText().toString();
-
-        if (selectedTypePayLink == 0) {
-            numberOfPaymentValue = "1";
-        } else {
-            if (numberPaymentEditText.getText().toString().isEmpty() || Double.parseDouble(numberPaymentEditText.getText().toString()) == 0.0) {
-                numberPaymentEditText.setError(getResources().getString(R.string.error_field_required));
-                return;
-            }
-        }
-
-        amountFormatted = NumberUtil.formatPaymentAmountToServer(amountEditText.getCurrencyText());
-        presenter.initiateOrder(terminalEditText.getText().toString(),merchantEditText.getText().toString(),"17213ec7a0aa2c438d423507684581f2", "EGP", currencyCode.getText().toString(), linkExpireDate, payerNameEditText.getText().toString(), NotificationMethod, numberPaymentEditText.getText().toString(), refNumberEditText.getText().toString(), amountEditText.getCurrencyText(), amountFormatted + "", numberOfPaymentValue, "imageBase64Value", "");
-
-//        if (BuildUtil.isVPOSGroupApp()) {
-//            presenter.initiateOrder(selectedTerminal, selectedCurrancy, CurrncyType.getSelectedItem().toString(), linkExpireDate, PayerName.getText().toString(), NotificationMethod, notification.getText().toString(), refnumber.getText().toString(), amountEditText.getCurrencyText(), amountFormatted + "", numberOfPaymentValue, imageBase64Value, messageEditText.getText().toString());
-//        } else {
-//            if (BuildUtil.isUpgGroupApp() && (NotificationMethod.equals("1"))) {
-//                presenter.initiateOrder(selectedTerminal, selectedCurrancy, CurrncyType.getSelectedItem().toString(), linkExpireDate, PayerName.getText().toString(), NotificationMethod, "+" + notification.getText().toString(), refnumber.getText().toString(), amountEditText.getCurrencyText(), amountFormatted + "", numberOfPaymentValue, imageBase64Value, "");
-//            } else {
-//                presenter.initiateOrder(selectedTerminal, selectedCurrancy, CurrncyType.getSelectedItem().toString(), linkExpireDate, PayerName.getText().toString(), NotificationMethod, notification.getText().toString(), refnumber.getText().toString(), amountEditText.getCurrencyText(), amountFormatted + "", numberOfPaymentValue, imageBase64Value, "");
-//            }
-//        }
+        setupListeners();
+        setDefaultLinkExpireDate();
     }
 
+    private void initViews() {
+        typeSpinner = findViewById(R.id.TypeSpinner);
+        currencyCodeEditText = findViewById(R.id.currency_code);
+        notificationTypeSpinner = findViewById(R.id.NotiType);
+        terminalEditText = findViewById(R.id.terminal_editText);
+        merchantEditText = findViewById(R.id.merchant_editText);
+        generatePayLinkButton = findViewById(R.id.genratePayLink);
+        lineLayout = findViewById(R.id.line);
+        typeLayout = findViewById(R.id.typeLL);
+        payerNameEditText = findViewById(R.id.PayerName);
+        secureHashEditText = findViewById(R.id.secureHash_editText);
+        numberOfPaymentsEditText = findViewById(R.id.NumberPayment);
+        refNumberEditText = findViewById(R.id.refnumber);
+        notificationEditText = findViewById(R.id.notification);
+        amountEditText = findViewById(R.id.amount_editText);
+        expirationDateButton = findViewById(R.id.dataExp);
+        currencyName = findViewById(R.id.currency_name);
+
+        progressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleLarge);
+        progressBar.setVisibility(View.GONE);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        lineLayout.addView(progressBar, params);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void setupSpinners() {
+        ArrayAdapter<String> notiAdapter = new ArrayAdapter<>(this, R.layout.spinner_item_paylink, getResources().getStringArray(R.array.notitype));
+        notiAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        notificationTypeSpinner.setAdapter(notiAdapter);
+        notificationTypeSpinner.getBackground().setColorFilter(getColor(R.color.red100), PorterDuff.Mode.SRC_ATOP);
+
+        notificationTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                handleNotificationTypeChange(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(this, R.layout.spinner_item_paylink, getResources().getStringArray(R.array.pay_link_type));
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(typeAdapter);
+        typeSpinner.getBackground().setColorFilter(getColor(R.color.red100), PorterDuff.Mode.SRC_ATOP);
+
+        typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedTypePayLink = position;
+                typeLayout.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    private void setupListeners() {
+        expirationDateButton.setOnClickListener(v -> DateTimeDailogUtil.createExpirationDateDialog(linkExpireDate, this, PayLinkActivity.this).show());
+
+        generatePayLinkButton.setOnClickListener(v -> {
+            try {
+                onGenerateLinkClicked();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void handleNotificationTypeChange(int position) {
+        int maxLength = position == 0 ? 160 : 16;
+        int inputType = position == 0 ? InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT : InputType.TYPE_CLASS_NUMBER;
+
+        String hint = getString(position == 0 ? R.string.upg_new_merchant_label_email : R.string.upg_new_merchant_phone_hint);
+
+        notificationEditText.setHint(hint);
+        notificationEditText.setInputType(inputType);
+        notificationEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength)});
+        notificationEditText.setText("");
+        notificationMethod = String.valueOf(position);
+    }
+
+    private void onGenerateLinkClicked() throws ParseException {
+        if (!validateInputs()) return;
+
+        String amountStr = amountEditText.getCurrencyText();
+        int formattedAmount = NumberUtil.formatPaymentAmountToServer(amountStr);
+        String numberOfPayments = selectedTypePayLink == 0 ? "1" : numberOfPaymentsEditText.getText().toString();
+        progressBar.setVisibility(View.VISIBLE);
+        PayLinkSdk.builder()
+                .setSelectedTerminal(terminalEditText.getText().toString())
+                .setMerchantId(merchantEditText.getText().toString())
+                .setMerchantSecureHash(secureHashEditText.getText().toString())
+                .setSelectedCurrency(currencyCodeEditText.getText().toString())
+                .setCurrencyName(currencyName.getText().toString())
+                .setDateExpire(linkExpireDate)
+                .setPayerName(payerNameEditText.getText().toString())
+                .setNotificationMethod(notificationMethod)
+                .setNotification(numberOfPayments)
+                .setReferenceNumber(refNumberEditText.getText().toString())
+                .setAmount(amountStr)
+                .setAmountTransaction(String.valueOf(formattedAmount))
+                .setNumberOfPayment(numberOfPayments)
+                .setImage(null)
+                .setMessage("Thanks for your payment")
+                .setCallback(new PayLinkCallback() {
+            @Override
+            public void onSuccess(InitiateOrderRequest request, InitiateOrderResponse response) {
+                progressBar.setVisibility(View.GONE);
+                Log.d("TAG", "onSuccess:onSuccessonSuccessonSuccess " + response.isSuccess());
+            }
+
+            @Override
+            public void onError(String message) {
+                progressBar.setVisibility(View.GONE);
+                Log.d("TAG", "onError:messagemessagemessage  " + message);
+            }
+        }).initiateOrder();
+
+
+    }
+
+    private boolean validateInputs() {
+        boolean hasError = false;
+
+        String amount = amountEditText.getText().toString().trim();
+        if (amount.isEmpty() || amount.equals("0") || amount.equals("0.00") || amount.equals("0.000")) {
+            amountEditText.setError(getString(R.string.upg_dialog_amount_title));
+            hasError = true;
+        }
+
+        String notification = notificationEditText.getText().toString().trim();
+        if (notification.isEmpty()) {
+            notificationEditText.setError(getString(R.string.error_field_required));
+            hasError = true;
+        } else if (notificationMethod.equals("0") && !ValidateUtil.validMail(notification)) {
+            notificationEditText.setError(getString(R.string.invalid_mail));
+            hasError = true;
+        } else if (notificationMethod.equals("1") && notification.length() < 6) {
+            notificationEditText.setError(getString(R.string.invalid_phone));
+            hasError = true;
+        }
+
+        if (selectedTypePayLink == 1) {
+            String numberOfPayments = numberOfPaymentsEditText.getText().toString().trim();
+            if (numberOfPayments.isEmpty() || Double.parseDouble(numberOfPayments) == 0.0) {
+                numberOfPaymentsEditText.setError(getString(R.string.error_field_required));
+                hasError = true;
+            }
+        }
+
+        return !hasError;
+    }
 
     private void setDefaultLinkExpireDate() {
-        final Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 1);
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        month = month + 1;
 
-        linkExpireDate = String.format(Locale.ENGLISH, "%d/%d/%d", day, month, year);
-        expirationDateButton.setText(linkExpireDate);
-       expirationDateButton.setTextColor(getResources().getColor(R.color.black));
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH) + 1;
+        dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        linkExpireDate = "" + new StringBuilder().append(year).append("").append((month < 10 ? "0" + month : month)).append("").append((day < 10 ? "0" + day : day)).append((hour < 10 ? "0" + hour : hour)).append((minute < 10 ? "0" + minute : minute));
+        expirationDateButton.setText(String.format(Locale.ENGLISH, "%02d/%02d/%d", dayOfMonth, month, year));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            expirationDateButton.setTextColor(getColor(R.color.black));
+        }
+
+        linkExpireDate = String.format(Locale.ENGLISH, "%04d%02d%02d%02d%02d", year, month, dayOfMonth, hour, minute);
     }
 
     @Override
@@ -272,11 +261,12 @@ public class PayLinkActivity extends AppCompatActivity implements PayLinkFragmen
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker;
-        final Context contextThemeWrapper = new ContextThemeWrapper(getContext(), R.style.AppTheme2);
+        final Context contextThemeWrapper = new ContextThemeWrapper(this, R.style.AppTheme2);
         mTimePicker = new TimePickerDialog(contextThemeWrapper, this, hour, minute, true);
 
         mTimePicker.show();
     }
+
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -294,7 +284,7 @@ public class PayLinkActivity extends AppCompatActivity implements PayLinkFragmen
         linkExpireDate = "" + new StringBuilder().append(year).append("/").append((month < 10 ? "0" + month : month)).append("/").append((dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth)).append("  ").append((hourOfDay < 10 ? "0" + hourOfDay : hourOfDay)).append(":").append((minute < 10 ? "0" + minute : minute));
 
 
-            expirationDateButton.setText(linkExpireDate);
+        expirationDateButton.setText(linkExpireDate);
         expirationDateButton.setTextColor(getResources().getColor(R.color.black));
 
         calendar.set(Calendar.MONTH, month);
@@ -306,49 +296,5 @@ public class PayLinkActivity extends AppCompatActivity implements PayLinkFragmen
         expirationDateButton.setTextColor(getResources().getColor(R.color.black));
     }
 
-    @Override
-    public void showPayLinkDialog(InitiateOrderRequest initiateOrder, InitiateOrderResponse body) {
 
-    }
-
-    @Override
-    public void hideDataForm() {
-
-    }
-
-    @Override
-    public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void showProgress(int message) {
-
-    }
-
-    @Override
-    public Context getContext() {
-        return this;
-    }
-
-    @Override
-    public void dismissProgress() {
-        progressBar.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showToast(int message) {
-
-    }
-
-    @Override
-    public void showNoInternetDialog() {
-
-    }
-
-    @Override
-    public boolean isInternetAvailable() {
-        return false;
-    }
 }
-

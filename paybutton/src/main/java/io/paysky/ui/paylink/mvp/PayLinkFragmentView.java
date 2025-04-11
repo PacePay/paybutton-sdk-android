@@ -1,12 +1,14 @@
-package io.paysky.ui.mvp.paylinkfragment;
+package io.paysky.ui.paylink.mvp;
+
+
 
 import io.paysky.data.model.request.InitiateOrderRequest;
 import io.paysky.data.model.response.InitiateOrderResponse;
-import io.paysky.ui.mvp.BaseView;
 
 
-public interface PayLinkFragmentView extends BaseView {
+public interface PayLinkFragmentView {
     void showPayLinkDialog(InitiateOrderRequest initiateOrder, InitiateOrderResponse body);
 
-    void hideDataForm();
+    void showError(String message);
+
 }

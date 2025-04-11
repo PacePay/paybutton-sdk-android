@@ -57,7 +57,9 @@
 
             </TableRow>
 
-            <TableRow android:id="@+id/merchantLL">
+            <TableRow
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/merchantLL">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -95,14 +97,14 @@
 
             </TableRow>
 
+
             <TableRow
                 android:id="@+id/AmoutLL"
-                android:layout_marginTop="@dimen/_8sdp">
+                android:layout_marginTop="@dimen/_10sdp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
-
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:gravity="center|start"
@@ -130,44 +132,103 @@
                         android:textColorHint="@color/black"
                         android:textSize="@dimen/_12ssp"
                         app:locale="en_US"
+                        android:hint="10.00"
                         tools:text=""
                         app:showSymbol="false" />
 
                 </LinearLayout>
-
-
             </TableRow>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+
+            <TableRow
+                android:id="@+id/currencyLL"
+                android:layout_marginTop="@dimen/_10sdp">
+
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:gravity="center|start"
                     android:text="@string/currency" />
-                <EditText
-                    android:background="@drawable/edit_login_background"
-                    android:id="@+id/currency_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
-                    android:imeOptions="actionNext"
-                    android:paddingEnd="@dimen/_8sdp"
-                    android:singleLine="true"
-                    android:inputType="numberDecimal"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="@dimen/_12ssp"
-                    app:locale="en_US"
-                    tools:text=""
-                    app:showSymbol="false" />
 
-            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_login_background"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/currency_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_login_background"
+                        android:hint="818"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/expire_date_editText"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        style="@style/EditStyle"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/currencyLL"
+                android:layout_marginTop="@dimen/_10sdp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="center|start"
+                    android:text="@string/currency" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_login_background"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/currency_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_login_background"
+                        android:hint="EGP"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/expire_date_editText"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        style="@style/EditStyle"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+
+            </TableRow>
 
             <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -189,7 +250,7 @@
                     android:imeOptions="actionNext"
                     android:paddingEnd="@dimen/_8sdp"
                     android:singleLine="true"
-                    android:inputType="numberDecimal"
+                    android:inputType="text"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
@@ -198,6 +259,7 @@
                     tools:text=""
                     app:showSymbol="false" />
             </LinearLayout>
+
             <TableRow android:layout_marginTop="@dimen/_8sdp">
 
                 <TextView
@@ -482,6 +544,7 @@
             android:gravity="center">
 
             <Button
+                android:clickable="false"
                 android:filterTouchesWhenObscured="true"
                 android:id="@+id/btnG"
                 android:layout_width="0dp"
@@ -492,6 +555,7 @@
                 android:textColor="@color/white" />
 
             <ImageView
+                android:clickable="false"
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
@@ -500,30 +564,6 @@
                 app:srcCompat="@drawable/ic_double_arrow" />
 
         </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/generate_history_link"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:gravity="center"
-            android:padding="@dimen/_8sdp">
-
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_history_white_24dp"
-                android:tint="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:gravity="center"
-                android:text="@string/upg_general_history" />
-        </LinearLayout>
-
 
     </LinearLayout>
 
