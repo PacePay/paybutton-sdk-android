@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

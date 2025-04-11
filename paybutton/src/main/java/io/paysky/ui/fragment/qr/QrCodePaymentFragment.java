@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import io.paysky.data.model.PaymentData;
 import io.paysky.data.model.ReceiptData;

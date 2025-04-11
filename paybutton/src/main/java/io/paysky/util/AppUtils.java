@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.paybutton.R
+import com.pacepay.paybutton.R
 import io.paysky.data.model.response.CardItem
 import io.paysky.ui.activity.payment.PaymentActivity
 import io.paysky.util.hideSoftKeyboard

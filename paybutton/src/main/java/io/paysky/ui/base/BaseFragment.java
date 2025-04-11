@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import io.paysky.ui.activity.payment.PaymentActivity;
 import io.paysky.ui.dialog.InfoDialog;

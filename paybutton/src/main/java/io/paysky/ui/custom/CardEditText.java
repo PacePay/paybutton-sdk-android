@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -40,7 +40,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    namespace 'com.example.paybutton'
+    namespace 'com.pacepay.paybutton'
 }
 
 

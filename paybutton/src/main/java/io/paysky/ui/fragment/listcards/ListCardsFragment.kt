@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.paybutton.R
+import com.pacepay.paybutton.R
 import io.paysky.data.model.TokenizedCardPaymentParameters
 import io.paysky.data.model.response.CardItem
 import io.paysky.ui.activity.payment.PaymentActivity

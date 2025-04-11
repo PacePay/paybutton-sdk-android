@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import io.paysky.data.model.CurrencyCode;
 import io.paysky.data.model.PaymentData;

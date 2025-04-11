@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.paybutton.R;
+import com.pacepay.paybutton.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
