@@ -1,6 +1,6 @@
 package io.paysky.ui.fragment.paymentsuccess;
 
-import com.pacepay.paybutton.R;
+import com.example.paybutton.R;
 
 import io.paysky.data.model.request.SendReceiptByMailRequest;
 import io.paysky.data.model.response.SendReceiptByMailResponse;

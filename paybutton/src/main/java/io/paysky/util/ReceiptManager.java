@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.pacepay.paybutton.R;
+import com.example.paybutton.R;
 
 import io.paysky.data.model.ReceiptData;
 

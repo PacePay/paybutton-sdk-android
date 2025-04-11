@@ -1,7 +1,7 @@
 package io.paysky.ui.fragment.cardsOperations
 
 import android.os.Bundle
-import com.pacepay.paybutton.R
+import com.example.paybutton.R
 import io.paysky.data.model.PaymentData
 import io.paysky.data.model.request.GetSessionRequest
 import io.paysky.data.model.request.ListSavedCardsRequest

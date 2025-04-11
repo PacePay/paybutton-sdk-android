@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 
-import com.pacepay.paybutton.R;
+import com.example.paybutton.R;
 
 
 public class ToastUtil extends NoProguard {

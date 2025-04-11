@@ -10,7 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import com.pacepay.paybutton.R;
+
+import com.example.paybutton.R;
 
 import io.paysky.util.ViewUtil;
 

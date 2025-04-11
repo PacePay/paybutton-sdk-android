@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pacepay.paybutton.R
+import com.example.paybutton.R
 import io.paysky.data.model.PaymentData
 import io.paysky.data.model.ReceiptData
 import io.paysky.ui.activity.payment.PaymentActivity

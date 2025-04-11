@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import com.pacepay.paybutton.R
+import com.example.paybutton.R
 import io.paysky.creditCardNfcReader.CardNfcAsyncTask
 import io.paysky.creditCardNfcReader.utils.CardNfcUtils
 

@@ -15,8 +15,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 
-import com.pacepay.paybutton.BuildConfig;
-import com.pacepay.paybutton.R;
+
+import com.example.paybutton.BuildConfig;
+import com.example.paybutton.R;
 
 import io.paysky.creditCardNfcReader.CardNfcAsyncTask;
 import io.paysky.data.model.PaymentData;

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.pacepay.paybutton.R
+import com.example.paybutton.R
 import io.paysky.data.model.response.CardItem
 import io.paysky.ui.fragment.listcards.CardsCallback
 

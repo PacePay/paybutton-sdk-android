@@ -11,7 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.pacepay.paybutton.R;
+
+import com.example.paybutton.R;
 
 import io.paysky.ui.activity.payment.PaymentActivity;
 import io.paysky.ui.base.BaseFragment;
