@@ -30,8 +30,8 @@
 
                 <ImageView
                     android:id="@+id/header_back_imageView"
-                    android:layout_width="@dimen/_32sdp"
-                    android:layout_height="@dimen/_32sdp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/_2sdp"
                     android:padding="@dimen/_8sdp"
