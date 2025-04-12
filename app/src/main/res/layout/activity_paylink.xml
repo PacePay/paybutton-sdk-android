@@ -165,7 +165,7 @@
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
-                        android:hint="818"
+                        android:hint="748"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLength="20"
@@ -193,7 +193,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="8dp"
                     android:gravity="center|start"
-                    android:text="@string/currency" />
+                    android:text="@string/currency_name" />
 
 
                 <LinearLayout
@@ -209,7 +209,7 @@
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
-                        android:hint="EGP"
+                        android:hint="AED"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLength="20"

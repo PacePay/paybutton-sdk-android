@@ -6,6 +6,7 @@
     <string name="terminal_id">Terminal ID</string>
     <string name="amount">Amount</string>
     <string name="currency">Currency Code</string>
+    <string name="currency_name">Currency Name</string>
     <string name="pay">Pay</string>
     <string name="testing_type">Testing Environment</string>
     <string name="environment_type">Testing URLs</string>
