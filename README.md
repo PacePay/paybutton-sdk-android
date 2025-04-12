@@ -28,7 +28,7 @@ maven { url 'https://jitpack.io' }
 ```
 3. In your build.gradle file in app level in dependencies{} add
 ```
-implementation 'com.github.payskyCompany:paybutton-sdk:2.0.14'
+implementation 'com.github.PacePay:paybutton-sdk-android:3.0.0'
 ```
 4. Sync your project.
 
@@ -148,6 +148,67 @@ This listener has 3 methods:
 3) `onError`                                                       
 in case transaction failed with TransactionException exception that has error info.                                                                                
 ​
+
+
+🔗 PayLink SDK Integration
+If you want to allow your users to generate payment links, you can easily integrate the PayLink SDK.
+
+🧱 Requirements
+To initiate a payment using the PayLink SDK, you'll need:
+
+Merchant ID
+
+Terminal ID
+
+Payment Amount
+
+Currency Code – refer to Currency Codes
+
+Secure Hash Key
+
+🧪 Example Usage
+You can create a payment link using PayLinkSdk.builder() by providing the required parameters.
+
+🔔 Scenario: Merchant Not Subscribed + Notification via Mobile Number
+
+​
+```java 
+PayLinkSdk.builder()
+    .setMerchantId(merchantEditText.getText().toString())
+    .setSelectedTerminal(terminalEditText.getText().toString())
+    .setMerchantSecureHash(secureHashEditText.getText().toString())
+    .setSelectedCurrency(currencyCodeEditText.getText().toString())
+    .setCurrencyName(currencyName.getText().toString())
+    .setDateExpire(linkExpireDate)
+    .setPayerName(payerNameEditText.getText().toString())
+    .setNotificationMethod(notificationMethod)
+    .setNotification(userPhoneNumber) // or userEmail if email is the notification method
+    .setReferenceNumber(refNumberEditText.getText().toString())
+    .setAmount(amountStr)
+    .setAmountTransaction(String.valueOf(formattedAmount))
+    .setNumberOfPayment(numberOfPayments)
+    .setImage(null) // Optional image URL or Bitmap
+    .setMessage("Thanks for your payment")
+    .setCallback(new PayLinkCallback() {
+        @Override
+        public void onSuccess(InitiateOrderRequest request, InitiateOrderResponse response) {
+            progressBar.setVisibility(View.GONE);
+           //handel your code onSuccess
+        }
+
+        @Override
+        public void onError(String message) {
+            progressBar.setVisibility(View.GONE);
+            //handel your code onError
+        }
+    })
+    .initiateOrder();
+
+```
+
+
+
+
 
 ### 🚀 Resolving conflicts
 
