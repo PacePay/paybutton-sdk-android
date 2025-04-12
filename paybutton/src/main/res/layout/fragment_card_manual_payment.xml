@@ -7,8 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical">
 
         <TableLayout
@@ -18,8 +18,8 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_7sdp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
                 android:gravity="center"
                 android:text="@string/enter_card_data"
                 android:textColor="#282C2E" />
@@ -29,18 +29,18 @@
 
                  <ImageView
                      android:id="@+id/card_type_imageView"
-                     android:layout_width="@dimen/_40sdp"
-                     android:layout_height="@dimen/_22sdp"
+                     android:layout_width="40dp"
+                     android:layout_height="22dp"
                      android:scaleType="fitXY" />
              </TableRow>-->
 
             <LinearLayout
-                android:layout_height="@dimen/_36sdp"
-                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/rectangle_border_drawable">
 
                 <View
-                    android:layout_width="@dimen/_15sdp"
+                    android:layout_width="15dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_number_leading" />
 
@@ -52,19 +52,19 @@
                     android:background="@drawable/card_number_background"
                     android:digits="01234 56789"
                     android:drawableStart="@drawable/ic_card_mini"
-                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawablePadding="4dp"
                     android:hint="@string/card_number"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLength="19"
                     android:maxLines="1"
-                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:paddingHorizontal="4dp"
                     android:singleLine="true"
                     android:text=""
                     android:textAlignment="viewStart"
                     android:textColorHint="?android:textColorHint"
                     android:textDirection="ltr"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="14dp" />
 
                 <ImageView
                     android:id="@+id/scan_camera_imageView"
@@ -79,8 +79,8 @@
             <EditText
                 android:id="@+id/card_owner_name_editText"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_36sdp"
-                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/rectangle_border_drawable"
                 android:hint="@string/name_on_card"
                 android:imeOptions="actionNext"
@@ -88,66 +88,66 @@
                 android:paddingHorizontal="8dp"
                 android:singleLine="true"
                 android:textColorHint="?android:textColorHint"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="14dp" />
 
-            <TableRow android:layout_marginTop="@dimen/_12sdp">
+            <TableRow android:layout_marginTop="12dp">
 
                 <io.paysky.ui.custom.ExpiryDate
                     android:id="@+id/expire_date_editText"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_36sdp"
-                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/rectangle_border_drawable"
                     android:drawableEnd="@drawable/ic_calender"
-                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawablePadding="4dp"
                     android:hint="@string/expire_date"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLength="5"
                     android:maxLines="1"
-                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingHorizontal="8dp"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textColorHint="?android:textColorHint"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="14dp" />
 
                 <EditText
                     android:id="@+id/ccv_editText"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_36sdp"
-                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/rectangle_border_drawable"
                     android:drawableEnd="@drawable/ic_cvv_mini"
-                    android:drawablePadding="@dimen/_4sdp"
+                    android:drawablePadding="4dp"
                     android:hint="@string/cvc"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
                     android:maxLength="3"
                     android:maxLines="1"
-                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:paddingHorizontal="8dp"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textColorHint="?android:textColorHint"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="14dp" />
             </TableRow>
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/save_for_future_checkbox"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="20dp"
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/checkbox_state"
-                android:drawablePadding="@dimen/_10sdp"
+                android:drawablePadding="10dp"
                 android:text="@string/save_for_future_use"
                 android:textColor="?android:textColorHint" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/set_as_default_checkbox"
-                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginTop="18dp"
                 android:button="@android:color/transparent"
                 android:drawableStart="@drawable/checkbox_state"
-                android:drawablePadding="@dimen/_10sdp"
+                android:drawablePadding="10dp"
                 android:text="@string/set_as_default"
                 android:textColor="?android:textColorHint" />
 
@@ -155,8 +155,8 @@
             <Button
                 android:id="@+id/proceed_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_marginTop="@dimen/_80sdp"
+                android:layout_height="34dp"
+                android:layout_marginTop="80dp"
                 android:background="@drawable/button_blue_selector"
                 android:text="@string/proceed"
                 android:textAllCaps="false"
@@ -165,9 +165,9 @@
             <Button
                 android:id="@+id/back_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_34sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_height="34dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/paybutton_black_border"
                 android:text="@string/back"
                 android:textAllCaps="false"

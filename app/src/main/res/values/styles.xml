@@ -11,7 +11,7 @@
         <item name="android:textColorHint">#7D8488</item>
         <item name="android:textColor">#353F47</item>
         <item name="android:background">@null</item>
-        <item name="android:paddingStart">@dimen/_8sdp</item>
+        <item name="android:paddingStart">8dp</item>
         <!--<item name="fontPath">fonts/timeburnernormal.ttf</item>-->
 
         <!--<item name="android:singleLine">true</item>-->

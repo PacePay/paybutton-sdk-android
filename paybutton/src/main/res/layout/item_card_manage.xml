@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:layout_marginBottom="@dimen/_24sdp"
+    android:layout_marginBottom="24dp"
     android:orientation="horizontal">
 
     <RadioButton
         android:id="@+id/card_selected_radio_button"
-        android:layout_width="@dimen/_35sdp"
+        android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="12dp"
         android:button="@drawable/radio_button_states" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -25,7 +25,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginStart="8dp"
         android:layout_weight="3.5"
         android:orientation="vertical">
 
@@ -39,14 +39,14 @@
             android:id="@+id/masked_card_number_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4sdp" />
+            android:layout_marginTop="4dp" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/delete_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginEnd="16dp"
         app:srcCompat="@drawable/ic_delete_card" />
 
 </LinearLayout>

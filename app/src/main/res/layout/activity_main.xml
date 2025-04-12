@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_10sdp"
+    android:layout_margin="10dp"
     android:fillViewport="true">
 
     <RelativeLayout
@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="8dp"
@@ -31,10 +31,10 @@
                 android:id="@+id/app_version_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="@string/app_name"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                     android:id="@+id/not_subscribed_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -53,7 +53,7 @@
                         android:id="@+id/not_subscribed_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:layout_marginBottom="8dp"
                         android:text="@string/not_subscribed"
                         android:textAlignment="center"
                         android:textColor="@color/blue100"
@@ -63,7 +63,7 @@
                         android:id="@+id/not_subscribed_line"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginEnd="8dp"
                         android:background="@color/blue100" />
                 </LinearLayout>
 
@@ -71,7 +71,7 @@
                     android:id="@+id/subscribed_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -79,7 +79,7 @@
                         android:id="@+id/subscribed_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:layout_marginBottom="8dp"
                         android:text="@string/subscribed"
                         android:textAlignment="center"
                         android:textColor="@color/gray100"
@@ -89,7 +89,7 @@
                         android:id="@+id/subscribed_line"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginEnd="8dp"
                         android:background="@color/gray100" />
                 </LinearLayout>
             </LinearLayout>
@@ -97,7 +97,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="8dp"
                 android:theme="@style/Theme.MaterialComponents.Light"
                 app:cardCornerRadius="4dp"
                 app:strokeColor="@color/gray300"
@@ -118,7 +118,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/mobile_number_hint"
                     android:textColor="@color/black"
@@ -144,7 +144,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/email_address"
                     android:textColor="@color/black"
@@ -167,7 +167,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/customer_id"
                     android:textColor="@color/black"
@@ -188,7 +188,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/merchant_id"
                     android:textColor="@color/black"
@@ -210,7 +210,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/terminal_id"
                     android:textColor="@color/black"
@@ -232,11 +232,11 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/secure_hash_key"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="10dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -255,7 +255,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/amount"
                     android:textColor="@color/black"
@@ -277,7 +277,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/currency"
                     android:textColor="@color/black"
@@ -299,11 +299,11 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/trnx_ref_number"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="10dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -317,13 +317,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="3"
                     android:text="@string/environment_type"
                     android:textColor="@color/black"
@@ -338,39 +338,39 @@
                     android:gravity="center"
                     android:text="@string/pay"
                     android:textColor="#FFF"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="14dp" />
             </LinearLayout>
 
 
             <TextView
                 android:id="@+id/pay_textView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_34sdp"
+                android:layout_height="34dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/button_blue_selector"
                 android:enabled="false"
                 android:gravity="center"
                 android:text="@string/submit"
                 android:textColor="#FFF"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/pay_Link"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_34sdp"
+                android:layout_height="34dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/button_blue_selector"
                 android:enabled="true"
                 android:gravity="center"
                 android:text="@string/upg_paylink_send_PayLink_btn"
                 android:textColor="#FFF"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="14dp" />
 
 
             <TextView
@@ -393,15 +393,15 @@
             android:drawablePadding="8dp"
             android:text="@string/change_language"
             android:textColor="@color/blue100"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="12dp" />
 
         <ImageView
             android:id="@+id/logo_imageView"
-            android:layout_width="@dimen/_130sdp"
+            android:layout_width="130dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/_4sdp"
+            android:layout_margin="4dp"
             android:src="@drawable/ic_paysky_logo" />
     </RelativeLayout>
 </ScrollView>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/_12sdp"
+        android:padding="12dp"
         tools:context="com.paysky.upg.smartboxv2.com.paysky.upg.fragment.PayLinkFragment">
 
         <TableLayout
@@ -24,19 +24,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_general_TerminalWithoutDot" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background">
                     <EditText
                         android:id="@+id/terminal_editText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
                         android:hint="@string/upg_general_TerminalWithoutDot"
@@ -45,12 +45,12 @@
                         android:maxLength="20"
                         android:maxLines="1"
                         android:nextFocusDown="@+id/expire_date_editText"
-                        android:paddingStart="@dimen/_12sdp"
-                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
                         style="@style/EditStyle"
                         android:singleLine="true"
                         android:textAlignment="viewStart"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="12dp" />
 
 
                 </LinearLayout>
@@ -58,25 +58,25 @@
             </TableRow>
 
             <TableRow
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/merchantLL">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/merchant" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background">
                     <EditText
                         android:id="@+id/merchant_editText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
                         android:hint="@string/merchant"
@@ -85,12 +85,12 @@
                         android:maxLength="20"
                         android:maxLines="1"
                         android:nextFocusDown="@+id/expire_date_editText"
-                        android:paddingStart="@dimen/_12sdp"
-                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
                         style="@style/EditStyle"
                         android:singleLine="true"
                         android:textAlignment="viewStart"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="12dp" />
 
 
                 </LinearLayout>
@@ -100,20 +100,20 @@
 
             <TableRow
                 android:id="@+id/AmoutLL"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:layout_marginTop="10dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_general_Amount" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:orientation="horizontal">
@@ -121,16 +121,16 @@
                     <io.paysky.paybutton.example.CurrencyEditText
                         android:id="@+id/amount_editText"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_38sdp"
+                        android:layout_height="38dp"
                         android:background="@null"
                         android:imeOptions="actionNext"
-                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingEnd="8dp"
                         android:singleLine="true"
                         android:inputType="numberDecimal"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="12dp"
                         app:locale="en_US"
                         android:hint="10.00"
                         tools:text=""
@@ -141,20 +141,20 @@
 
             <TableRow
                 android:id="@+id/currencyLL"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:layout_marginTop="10dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/currency" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:orientation="horizontal">
@@ -162,7 +162,7 @@
                     <EditText
                         android:id="@+id/currency_code"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
                         android:hint="818"
@@ -171,12 +171,12 @@
                         android:maxLength="20"
                         android:maxLines="1"
                         android:nextFocusDown="@+id/expire_date_editText"
-                        android:paddingStart="@dimen/_12sdp"
-                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
                         style="@style/EditStyle"
                         android:singleLine="true"
                         android:textAlignment="viewStart"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -185,20 +185,20 @@
 
             <TableRow
                 android:id="@+id/currencyLL"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:layout_marginTop="10dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/currency" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:orientation="horizontal">
@@ -206,7 +206,7 @@
                     <EditText
                         android:id="@+id/currency_name"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@drawable/edit_login_background"
                         android:hint="EGP"
@@ -215,12 +215,12 @@
                         android:maxLength="20"
                         android:maxLines="1"
                         android:nextFocusDown="@+id/expire_date_editText"
-                        android:paddingStart="@dimen/_12sdp"
-                        android:paddingEnd="@dimen/_12sdp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
                         style="@style/EditStyle"
                         android:singleLine="true"
                         android:textAlignment="viewStart"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -228,7 +228,7 @@
             </TableRow>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -237,7 +237,7 @@
                     android:layout_width="wrap_content"
 
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/secure_hash_key" />
 
@@ -246,27 +246,27 @@
                     android:layout_weight="1"
                     android:id="@+id/secureHash_editText"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_38sdp"
+                    android:layout_height="38dp"
                     android:imeOptions="actionNext"
-                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingEnd="8dp"
                     android:singleLine="true"
                     android:inputType="text"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textSize="@dimen/_12ssp"
+                    android:textSize="12dp"
                     app:locale="en_US"
                     tools:text=""
                     app:showSymbol="false" />
             </LinearLayout>
 
-            <TableRow android:layout_marginTop="@dimen/_8sdp">
+            <TableRow android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_paylink_payer_name_label" />
 
@@ -274,7 +274,7 @@
                 <EditText
                     android:id="@+id/PayerName"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:hint="@string/upg_paylink_payer_name_hint"
@@ -283,40 +283,40 @@
                     android:maxLength="20"
                     android:maxLines="1"
                     android:nextFocusDown="@+id/expire_date_editText"
-                    android:paddingStart="@dimen/_12sdp"
-                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     style="@style/EditStyle"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="12dp" />
 
             </TableRow>
 
 
-            <TableRow android:layout_marginTop="@dimen/_8sdp">
+            <TableRow android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
 
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_paylink_order_Type_label" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background">
 
                     <Spinner
                         android:id="@+id/TypeSpinner"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_35sdp"
+                        android:layout_height="35dp"
                         android:dropDownVerticalOffset="40dp"
                         android:gravity="start"
-                        android:padding="@dimen/_8sdp"
+                        android:padding="8dp"
                         android:text="@string/upg_paylink_select_order_type_hint" />
                 </LinearLayout>
 
@@ -325,19 +325,19 @@
 
             <TableRow
                 android:id="@+id/typeLL"
-                android:layout_marginTop="@dimen/_8sdp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/number_payment_name" />
 
                 <EditText
                     android:id="@+id/NumberPayment"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:hint="@string/upg_paylink_item_number_payment_name_label"
@@ -347,23 +347,23 @@
                     android:maxLines="1"
                     style="@style/EditStyle"
                     android:nextFocusDown="@+id/expire_date_editText"
-                    android:paddingStart="@dimen/_12sdp"
-                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="12dp" />
 
             </TableRow>
 
 
             <TableRow
                 android:id="@+id/ReferenceNumberLL"
-                android:layout_marginTop="@dimen/_8sdp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_paylink_transaction_number_label" />
 
@@ -371,7 +371,7 @@
                 <EditText
                     android:id="@+id/refnumber"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:hint="@string/upg_paylink_transaction_number_hint"
@@ -381,11 +381,11 @@
                     android:maxLines="1"
                     style="@style/EditStyle"
                     android:nextFocusDown="@+id/expire_date_editText"
-                    android:paddingStart="@dimen/_12sdp"
-                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="12dp" />
 
             </TableRow>
 
@@ -393,18 +393,18 @@
             <TableRow
                 android:id="@+id/dataExpLL"
 
-                android:layout_marginTop="@dimen/_8sdp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_general_Expiration" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
 
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
@@ -420,10 +420,10 @@
                         android:background="@null"
                         android:gravity="start|center_vertical"
                         android:hint="@string/upg_paylink_expiration_date_hint"
-                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingStart="12dp"
                         android:textColor="@color/blue100"
                         android:textColorHint="@color/blue100"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
             </TableRow>
@@ -432,18 +432,18 @@
             <TableRow
                 android:id="@+id/LLnoti"
 
-                android:layout_marginTop="@dimen/_8sdp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/upg_general_Notification" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:gravity="center"
@@ -455,20 +455,20 @@
                         android:layout_height="match_parent"
                         android:dropDownVerticalOffset="40dp"
                         android:gravity="start"
-                        android:padding="@dimen/_8sdp" />
+                        android:padding="8dp" />
 
                     <EditText
                         android:id="@+id/notification"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:background="@null"
                         android:hint="@string/upg_general_Notification"
                         android:imeOptions="actionNext"
                         android:maxLength="25"
                         android:maxLines="1"
-                        android:textSize="@dimen/_11ssp"
+                        android:textSize="11dp"
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"
                         android:singleLine="true" />
@@ -479,21 +479,21 @@
 
             <TableRow
                 tools:visibility="visible"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="8dp"
                 android:visibility="gone"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginEnd="8dp"
                     android:gravity="center|start"
                     android:text="@string/image" />
 
                 <LinearLayout
                     android:id="@+id/select_image_LL"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_login_background"
                     android:gravity="center"
@@ -520,10 +520,10 @@
 
                     <ImageView
                         android:id="@+id/succesimage"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginEnd="12dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/ic_delete_card"
                         app:tint="@color/blue100" />
@@ -537,9 +537,9 @@
         <LinearLayout
             android:id="@+id/genratePayLink"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:padding="@dimen/_7sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="35dp"
+            android:padding="7dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_background"
             android:gravity="center">
 
@@ -556,9 +556,9 @@
 
             <ImageView
                 android:clickable="false"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="15dp"
                 android:scaleX="@integer/one"
                 app:tint="@color/white"
                 app:srcCompat="@drawable/ic_double_arrow" />

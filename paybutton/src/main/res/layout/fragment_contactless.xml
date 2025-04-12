@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="7dp"
         android:gravity="center"
         android:text="@string/tv_tapYourCard"
         android:textColor="#282C2E" />
@@ -23,7 +23,7 @@
             android:layout_marginTop="32dp"
             app:srcCompat="@drawable/vc_pay_by_nfc"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/_16sdp"/>
+            android:layout_marginBottom="16dp"/>
 
 
 
@@ -43,16 +43,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:padding="@dimen/_7sdp"
-            android:layout_marginEnd="@dimen/_12sdp"
+            android:padding="7dp"
+            android:layout_marginEnd="12dp"
             android:src="@drawable/visa_logo" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_3sdp"
-            android:paddingBottom="@dimen/_3sdp"
-            android:layout_marginStart="@dimen/_12sdp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_marginStart="12dp"
             app:srcCompat="@drawable/vc_mastercard_logo" />
 
 

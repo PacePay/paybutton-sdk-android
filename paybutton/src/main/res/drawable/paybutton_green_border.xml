@@ -4,14 +4,14 @@
 
     <item android:state_pressed="true">
         <shape>
-            <stroke android:width="@dimen/_2sdp" android:color="#FF4AE6D0" />
+            <stroke android:width="2dp" android:color="#FF4AE6D0" />
             <corners android:radius="4dp" />
         </shape>
     </item>
 
     <item>
         <shape>
-            <stroke android:width="@dimen/_2sdp" android:color="#04a48e" />
+            <stroke android:width="2dp" android:color="#04a48e" />
             <corners android:radius="4dp" />
         </shape>
     </item>

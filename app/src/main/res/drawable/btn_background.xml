@@ -9,7 +9,7 @@
                 android:endColor="@color/black100"
                 android:angle="270" />
             <corners
-                android:radius="@dimen/_25sdp"   >
+                android:radius="25dp"   >
             </corners>
 
 

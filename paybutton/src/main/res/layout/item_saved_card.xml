@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_24sdp"
+    android:layout_marginBottom="24dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/_16sdp">
+        android:paddingHorizontal="16dp">
 
         <RadioButton
             android:id="@+id/card_selected_radio_button"
-            android:layout_width="@dimen/_35sdp"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:button="@drawable/radio_button_states" />
@@ -29,7 +29,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginStart="8dp"
             android:layout_weight="3.5"
             android:orientation="vertical">
 
@@ -38,30 +38,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/masked_card_number_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:textSize="@dimen/_12ssp" />
+                android:layout_marginTop="4dp"
+                android:textSize="12dp" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/ccv_editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="10dp"
             android:layout_weight="2"
             android:background="@drawable/cvv_border_background"
             android:drawableEnd="@drawable/ic_cvv"
-            android:drawablePadding="@dimen/_10sdp"
+            android:drawablePadding="10dp"
             android:hint="@string/cvv"
             android:inputType="number"
             android:maxLength="3"
-            android:paddingHorizontal="@dimen/_8sdp"
-            android:paddingVertical="@dimen/_8sdp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
             android:visibility="invisible" />
     </LinearLayout>
 
@@ -69,9 +69,9 @@
         android:id="@+id/cvv_required"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginStart="16dp"
         android:text="@string/cvv_number_required"
         android:textColor="@color/red100"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="12dp"
         android:visibility="gone" />
 </LinearLayout>

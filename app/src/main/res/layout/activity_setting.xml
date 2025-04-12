@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_8sdp"
+    android:padding="8dp"
     tools:context="com.example.amrel.paybuttonexample.com.paysky.amrel.paybuttonexample.SettingActivity">
 
 
@@ -22,25 +22,25 @@
 
 
     <TextView
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="4dp"
         android:text="Default Payment" />
 
     <Spinner
         android:id="@+id/default_payment_spinner"
-        android:layout_height="@dimen/_40sdp" />
+        android:layout_height="40dp" />
 
     <TextView
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="4dp"
         android:text="Server Link" />
 
     <Spinner
         android:id="@+id/server_links_spinner"
-        android:layout_height="@dimen/_40sdp" />
+        android:layout_height="40dp" />
 
 
     <Button
         android:id="@+id/save_button"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_blue_selector"
         android:text="SAVE"
         android:textColor="#FFF" />
